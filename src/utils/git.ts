@@ -4,8 +4,8 @@ import { context } from '@actions/github'
 export default function useGit(token: string) {
   const { repo, owner } = context.repo
   async function cloneRepo() {
-    await exec(`git config --global user.email "github-actions[bot]@users.noreply.github.com"`)
-    await exec(`git config --global user.name "github-actions[bot]"`)
+    // await exec(`git config --global user.email "github-actions[bot]@users.noreply.github.com"`)
+    // await exec(`git config --global user.name "github-actions[bot]"`)
     await exec('git', ['config', '--global', `url.https://${token}@github.com/.insteadOf`, 'https://github.com/'])
 
     // const repo_url = `https://${context.token}@github.com/${owner}/${repo}.git`
