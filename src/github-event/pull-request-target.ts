@@ -36,7 +36,7 @@ export async function pull_request_target(token: string) {
         info(`${release.name} is private package, skip publish`)
         return
       }
-      const { stdout } = await getExecOutput('pnpm', ['publish', '--no-git-checks', '--filter', release.name, '--tag', release.tag])
+      const { stdout } = await getExecOutput('pnpm', ['--filter', release.name, 'run', 'publish'])
 
       info(stdout)
     })

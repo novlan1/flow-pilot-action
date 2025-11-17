@@ -59542,7 +59542,7 @@ function pull_request_target(token) {
                     (0, core_1.info)(`${release.name} is private package, skip publish`);
                     return;
                 }
-                const { stdout } = yield (0, exec_1.getExecOutput)('pnpm', ['publish', '--no-git-checks', '--filter', release.name, '--tag', release.tag]);
+                const { stdout } = yield (0, exec_1.getExecOutput)('pnpm', ['--filter', release.name, 'run', 'publish']);
                 (0, core_1.info)(stdout);
             }));
         }
