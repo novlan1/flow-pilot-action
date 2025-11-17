@@ -59409,8 +59409,6 @@ function confirmReleaseLog(prNumber, log, token) {
             (0, node_fs_1.writeFileSync)(`${release.dir}/${changelogFileName}`, newData, 'utf8');
         }
         yield (0, exec_1.exec)('git', ['add', '**/*.md']);
-        yield (0, exec_1.exec)('git', ['config', '--local', 'user.email', 'github-actions[bot]@users.noreply.github.com']);
-        yield (0, exec_1.exec)('git', ['config', '--local', 'user.name', 'github-actions[bot]']);
         yield (0, exec_1.exec)('git', ['status']);
         if (!(yield isNeedCommit())) {
             (0, core_1.info)('无需提交');
@@ -60201,8 +60199,8 @@ function useGit(token) {
     const { repo, owner } = github_1.context.repo;
     function cloneRepo() {
         return __awaiter(this, void 0, void 0, function* () {
-            yield (0, exec_1.exec)(`git config --global user.email "tdesign@tencent.com"`);
-            yield (0, exec_1.exec)(`git config --global user.name "tdesign-bot"`);
+            yield (0, exec_1.exec)(`git config --global user.email "github-actions[bot]@users.noreply.github.com"`);
+            yield (0, exec_1.exec)(`git config --global user.name "github-actions[bot]"`);
             yield (0, exec_1.exec)('git', ['config', '--global', `url.https://${token}@github.com/.insteadOf`, 'https://github.com/']);
             // const repo_url = `https://${context.token}@github.com/${owner}/${repo}.git`
             const repo_url = `https://github.com/${owner}/${repo}.git`;

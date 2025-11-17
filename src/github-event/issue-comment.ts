@@ -134,8 +134,6 @@ async function confirmReleaseLog(prNumber: number, log: string, token: string) {
   }
 
   await exec('git', ['add', '**/*.md'])
-  await exec('git', ['config', '--local', 'user.email', 'github-actions[bot]@users.noreply.github.com'])
-  await exec('git', ['config', '--local', 'user.name', 'github-actions[bot]'])
   await exec('git', ['status'])
   if (!await isNeedCommit()) {
     info('无需提交')
