@@ -59514,9 +59514,10 @@ const github_2 = __importDefault(__nccwpck_require__(953));
 function pull_request_target(token) {
     return __awaiter(this, void 0, void 0, function* () {
         var _a;
-        if (github_1.context.eventName !== 'pull_request_target') {
-            return false;
-        }
+        // TODO: to revert
+        // if (context.eventName !== 'pull_request_target') {
+        //   return false
+        // }
         const prNumber = (0, utils_1.getPullRequestNumber)();
         const { getPullRequestData, getPullRequestFiles, createRelease } = (0, github_2.default)(token);
         const prData = yield getPullRequestData(prNumber);
