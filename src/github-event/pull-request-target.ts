@@ -6,10 +6,9 @@ import { checkReleaseBranch, getPullRequestNumber, getPullRequestReleaseDirs } f
 import useGithub from 'src/utils/github'
 
 export async function pull_request_target(token: string) {
-  // TODO: to revert
-  // if (context.eventName !== 'pull_request_target') {
-  //   return false
-  // }
+  if (context.eventName !== 'pull_request_target') {
+    return false
+  }
   const prNumber = getPullRequestNumber()
   const { getPullRequestData, getPullRequestFiles, createRelease } = useGithub(token)
 
